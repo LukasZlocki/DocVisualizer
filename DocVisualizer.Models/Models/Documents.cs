@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace DocVisualizer.Models.Models
 {
-    public class Document
+    public class Documents
     {
-        public string? DocumentName { get; set; }
+        public string? Product { get; set; }
+        public List<Document>? DocumentsList { get; set; }
     }
 }
