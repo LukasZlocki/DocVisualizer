@@ -8,7 +8,7 @@ namespace DocVisualizer.Models.Models
 {
     public class Documents
     {
-        public string? Product { get; set; }
+        public string? ProductID { get; set; }
         public List<Document>? DocumentsList { get; set; }
     }
 }
