@@ -4,6 +4,6 @@ namespace DocVisualizer.Services.Service
 {
     internal interface IDocumentService
     {
-        public Documents GetAllDocumentsByProduct(string product);
+        public Documents GetAllDocumentsByProductId(string productId);
     }
 }
