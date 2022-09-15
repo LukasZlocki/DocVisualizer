@@ -17,5 +17,14 @@ namespace DocVisualizer.Services.Service
 
             return documents;
         }
+
+        /*
+        // for db test purpose 
+        public void SaveDb()
+        {
+            db.SaveDummyCLassToFile();
+        }
+        */
+
     }
 }
