@@ -10,5 +10,12 @@ namespace DocVisualizer.Models.Models
     {
         public string? ProductID { get; set; }
         public List<Document>? DocumentsList { get; set; }
+
+        public Documents()
+        {
+           DocumentsList = new List<Document>();
+        }
+
+
     }
 }
