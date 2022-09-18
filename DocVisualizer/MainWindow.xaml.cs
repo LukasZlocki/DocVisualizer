@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using DocVisualizer.Models.Models;
 using DocVisualizer.Services.Service;
 
 namespace DocVisualizer
@@ -21,19 +9,35 @@ namespace DocVisualizer
     /// </summary>
     public partial class MainWindow : Window
     {
+        Documents docs = new Documents();
+
         public MainWindow()
         {
             InitializeComponent();
 
-            DbTests();
+           // DbTests_SaveDataFromDb();
+
+           docs = DbTest_LoadDataFromDb();
         }
 
+        // Loading list of documents from database
+        Documents DbTest_LoadDataFromDb()
+        {
+            Documents _docs = new Documents();
+            DocumentService service = new DocumentService();
 
-        void DbTests()
+            _docs = service.GetAllDocumentsByProductId("150L0065");
+
+            return _docs;
+        }
+
+        /*
+        void DbTests_SaveDataFromDb()
         {
             DocumentService docService = new DocumentService();
             docService.SaveDb();
         }
+        */
 
 
     }
