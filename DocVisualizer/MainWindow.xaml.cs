@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DocVisualizer.Services.Service;
 
 namespace DocVisualizer
 {
@@ -23,6 +24,17 @@ namespace DocVisualizer
         public MainWindow()
         {
             InitializeComponent();
+
+            DbTests();
         }
+
+
+        void DbTests()
+        {
+            DocumentService docService = new DocumentService();
+            docService.SaveDb();
+        }
+
+
     }
 }
