@@ -8,7 +8,7 @@ namespace DocVisualizer.Services.Db_Service
         static string DB_FILE_NAME = "dbfile.xml";
         
         // READ
-        public Documents ReadDocumentsFromDatabaByProductId(string ProductId)
+        public Documents ReadDocumentsFromDatabaseByProductId(string ProductId)
         {
             List<Documents> documentsList = new List<Documents>();
             Documents? documents = new Documents();
@@ -20,8 +20,7 @@ namespace DocVisualizer.Services.Db_Service
 
             return documents;
         }
-    
-        // READ - all database
+        
         private List<Documents> LoadDatabase()
         {
             List<Documents> docsList = new List<Documents>();
@@ -41,7 +40,7 @@ namespace DocVisualizer.Services.Db_Service
             return docsList;
         }
 
-        // SAVE Database
+
         private void SaveDatabase(List<Documents> documentsList)
         {
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Documents>));
@@ -49,7 +48,51 @@ namespace DocVisualizer.Services.Db_Service
             xmlSerializer.Serialize(tw, documentsList);
             tw.Close();
         }
-        
+
 
     }
 }
+
+
+
+/* Delete this 
+// SAVE - database / only for db testing purpose 
+public void SaveDummyCLassToFile()
+{
+    List<Documents> dummyDocs = new List<Documents>();
+    dummyDocs = dummyClass();
+
+    SaveDatabase(dummyDocs);
+}
+*/
+
+
+/* Delete this ! 
+// Dummy objects for db test purpose
+private List<Documents> dummyClass()
+{
+    List<Documents> dummyDocLists = new List<Documents>();
+
+    Documents docs1 = new Documents();
+    Documents docs2 = new Documents();
+
+    docs1.ProductID = "150L0065";
+    docs2.ProductID = "150L0071";
+
+    Document d1 = new Document { DocumentName = "Instrukcja1" };
+    Document d2 = new Document { DocumentName = "Instrukcja2" };
+    Document d3 = new Document { DocumentName = "Instrukcja3" };
+    Document d4 = new Document { DocumentName = "Instrukcja4" };
+
+    docs1.DocumentsList.Add(d1);
+    docs1.DocumentsList.Add(d2);
+
+    docs2.DocumentsList.Add(d3);
+    docs2.DocumentsList.Add(d4);
+
+    dummyDocLists.Add(docs1);
+    dummyDocLists.Add(docs2);
+
+    return dummyDocLists;
+}
+*/
