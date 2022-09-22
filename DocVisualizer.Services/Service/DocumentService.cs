@@ -10,11 +10,7 @@ namespace DocVisualizer.Services.Service
         public Documents GetAllDocumentsByProductId(string productId)
         {
             Documents documents = new Documents();
-
             documents = db.ReadDocumentsFromDatabaseByProductId(productId);
-            // ToDo : code retriving service from database (XML file)
-            // ...
-
             return documents;
         }
 
