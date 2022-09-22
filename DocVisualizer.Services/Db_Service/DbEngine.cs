@@ -31,7 +31,7 @@ namespace DocVisualizer.Services.Db_Service
                 docsList = (List<Documents>)xmlSerializer.Deserialize(tr);
             }
             catch(Exception ex){
-                Console.WriteLine("No data base found. Creating empty file with database.");
+                Console.WriteLine("No data base found. Creating empty file with database. Error: " + ex);
             }
             if (docsList == null){
                 docsList = new List<Documents>();
