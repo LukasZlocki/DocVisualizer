@@ -6,7 +6,5 @@ namespace DocVisualizer.Services.Service
     {
         public Documents GetAllDocumentsByProductId(string productId);
 
-        // for db test purpose
-        // public void SaveDb();
     }
 }
