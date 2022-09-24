@@ -9,4 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DocVisualizer.Services\DocVisualizer.Services.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pics\" />
+  </ItemGroup>
 </Project>
