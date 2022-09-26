@@ -31,6 +31,21 @@ namespace DocVisualizer
             return _docs;
         }
 
+        private void btnLanguage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OnKeyDownHandler(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+
+        }
+
+        private void SettingsWindowRun(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         /*
         void DbTests_SaveDataFromDb()
         {

@@ -5,8 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DocVisualizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="DocVisualizer" Height="700" Width="550">
+    <Window.Resources>
+        <Image x:Key="PL" Source="/Pics/Polish_Flag.png" Height="55" Width="80" />
+        <Image x:Key="UA" Source="/Pics/Ukraine_Flag.png"  Height="55" Width="80"/>
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.75*"/>
+            <RowDefinition Height="0.10*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- 
+        Menu for main window  
+        <!-->
+        <Menu Grid.RowSpan="2">
+            <MenuItem Header="Ustawienia">
+                <MenuItem  Header="Ustawienia programu" Click="SettingsWindowRun" />
+            </MenuItem>
+        </Menu>
+
+        <!-- 
+            Area for document presentation
+        <!-->
+        <StackPanel Grid.Row="0">
+            <Image x:Name="ImageShow" HorizontalAlignment="Center"  VerticalAlignment="Top" Height="0" Width="0" d:IsLocked="True"/>
+        </StackPanel>
+
+        <!-- 
+            Are for buttons and interaction with user
+        <!-->
+        <DockPanel>
+            <StackPanel>
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#225E66" Offset="0.717"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            </StackPanel>
+        </DockPanel>
+        <DockPanel Grid.Column="0" Grid.Row="1">
+            <StackPanel>
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#225E66" Offset="0.717"/>
+                        <GradientStop Color="White"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+            </StackPanel>
+        </DockPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#225E66" Offset="0.717"/>
+                    <GradientStop Color="White"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
+                <Button x:Name="btnLeft" Margin="10" Height="60" Width="60">Left</Button>
+                <Button x:Name="btnRight" Margin="10" Height="60" Width="60">Right</Button>
+                <Label x:Name="lblCounter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" >0 / 0</Label>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                <TextBox x:Name="txtBoxID" TextAlignment="Center" FontSize="40" Height="53" TextWrapping="Wrap" Text="..." Width="201" KeyDown="OnKeyDownHandler"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                <Button x:Name="btnLanguage" Click="btnLanguage_Click" Height="55" Width="80">
+                    <DynamicResource ResourceKey="PL" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
 
     </Grid>
 </Window>
