@@ -9,36 +9,26 @@ namespace DocVisualizer
     /// </summary>
     public partial class MainWindow : Window
     {
-        Documents docs = new Documents();
-
         public MainWindow()
         {
             InitializeComponent();
 
-           // DbTests_SaveDataFromDb();
-
-           docs = DbTest_LoadDataFromDb();
         }
 
-        // Loading list of documents from database
-        Documents DbTest_LoadDataFromDb()
-        {
-            Documents _docs = new Documents();
-            DocumentService service = new DocumentService();
-
-            _docs = service.GetAllDocumentsByProductId("150L0065");
-
-            return _docs;
-        }
-
+       
+        #region Buttons
         private void btnLanguage_Click(object sender, RoutedEventArgs e)
         {
 
         }
+        #endregion
 
         private void OnKeyDownHandler(object sender, System.Windows.Input.KeyEventArgs e)
         {
-
+            if(e.Key == System.Windows.Input.Key.Return)
+            {
+                MainLoop();
+            }
         }
 
         private void SettingsWindowRun(object sender, RoutedEventArgs e)
@@ -46,14 +36,29 @@ namespace DocVisualizer
 
         }
 
-        /*
-        void DbTests_SaveDataFromDb()
+
+        // Gets document from user, load documents from database, show documents on screeen, set up document counter on frontend
+        private void MainLoop()
         {
-            DocumentService docService = new DocumentService();
-            docService.SaveDb();
+            Documents documents = new Documents();        
+            string partNumber = txtBoxID.Text;
+            documents = LoadDocumentsFomDatabase(partNumber);
+            ShowDocumentsOnScreen(documents);
         }
-        */
 
+        private Documents LoadDocumentsFomDatabase(string partNumber)
+        {
+            Documents docs = new Documents();
+            DocumentService documentService = new DocumentService();
+            docs = documentService.GetAllDocumentsByProductId(partNumber);
+            return docs;
+        }
 
+        private void ShowDocumentsOnScreen(Documents documents)
+        {
+            // ToDo: Code showing documents on screen
+        }
+
+        
     }
 }
