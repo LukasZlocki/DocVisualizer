@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using DocVisualizer.Models.Models;
 using DocVisualizer.Services.Service;
 
@@ -40,6 +42,8 @@ namespace DocVisualizer
         // Gets document from user, load documents from database, show documents on screeen, set up document counter on frontend
         private void MainLoop()
         {
+            // ToDo: Show set of documents , and make it available to switch between docs up/down and show it on document counter
+
             Documents documents = new Documents();        
             string partNumber = txtBoxID.Text;
             documents = LoadDocumentsFomDatabase(partNumber);
@@ -56,7 +60,9 @@ namespace DocVisualizer
 
         private void ShowDocumentsOnScreen(Documents documents)
         {
-            // ToDo: Code showing documents on screen
+            string fullPAth = @"C:\0 VirtualServer\Documents\BrakDokumentu.jpg";
+            ImageSource imageSource = new BitmapImage(new System.Uri(fullPAth));
+            ImageShow.Source = imageSource;
         }
 
         
