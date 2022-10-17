@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using DocVisualizer.Models.Models;
 using DocVisualizer.Services.Service;
 
@@ -57,6 +59,10 @@ namespace DocVisualizer
         private void ShowDocumentsOnScreen(Documents documents)
         {
             // ToDo: Code showing documents on screen
+            string fullPAth = @"C:\0 VirtualServer\Documents\BrakDokumentu.jpg";
+
+            ImageSource imageSource = new BitmapImage(new System.Uri(fullPAth));
+            ImageShow.Source = imageSource;
         }
 
         
