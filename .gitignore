@@ -1,0 +1,12 @@
+.vs/
+.vscode/
+DocVisualizer/bin/
+DocVisualizer/obj/
+DocVisualizer.Models/bin/
+DocVisualizer.Models/obj/
+DocVisualizer.Models/Migrations/
+DocVisualizer.Services/bin/
+DocVisualizer.Services/obj/
+obj/
+DocVisualizer.sln
+DocVisualizer/dbfile.xml
