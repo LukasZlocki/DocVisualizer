@@ -22,12 +22,26 @@ namespace DocVisualizer.Services.Service
 
         public void MoveBackward()
         {
-            this._docPagePossition--;
+            if (_docPagePossition == 0)
+            {
+                _docPagePossition = 0;
+            }
+            else
+            {
+                _docPagePossition--;
+            }
         }
 
         public void MoveForward()
         {
-            this._docPagePossition++;
+            if (_docPagePossition == _docPages)
+            {
+                _docPagePossition = _docPages;
+            }
+            else
+            {
+                _docPagePossition++;
+            }
         }
 
         public string GetCodeNumber()
