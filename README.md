@@ -33,7 +33,7 @@ App is easily installable and configurable on any production computers by leader
 * WPF
 * .NET 6.0
 * C#
-* xalm
+* xaml
 * XML
 * SQL Server
 
