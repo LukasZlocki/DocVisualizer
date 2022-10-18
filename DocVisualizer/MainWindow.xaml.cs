@@ -11,10 +11,11 @@ namespace DocVisualizer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private NavigationService Navigation;
+
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
        
@@ -47,7 +48,8 @@ namespace DocVisualizer
             Documents documents = new Documents();        
             string partNumber = txtBoxID.Text;
             documents = LoadDocumentsFomDatabase(partNumber);
-            ShowDocumentsOnScreen(documents);
+            Navigation = new NavigationService(documents);
+            ShowDocumentsOnScreen(documents, Navigation);
         }
 
         private Documents LoadDocumentsFomDatabase(string partNumber)
@@ -58,13 +60,21 @@ namespace DocVisualizer
             return docs;
         }
 
-        private void ShowDocumentsOnScreen(Documents documents)
+        private void ShowDocumentsOnScreen(Documents documents, NavigationService navigation)
         {
+            // ToDo : Code to show proper document from navigation class
+            // ToDo : Code up/down buttons
             string fullPAth = @"C:\0 VirtualServer\Documents\BrakDokumentu.jpg";
             ImageSource imageSource = new BitmapImage(new System.Uri(fullPAth));
             ImageShow.Source = imageSource;
+
+            UpdateDocumentCounterOnScreen(navigation);
         }
 
+        private void UpdateDocumentCounterOnScreen(NavigationService navigation)
+        {
+            lblCounter.Content = "" + navigation.GetCounter();
+        }
         
     }
 }
