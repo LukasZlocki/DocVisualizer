@@ -60,8 +60,8 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Orientation="Horizontal">
-                <Button x:Name="btnLeft" Margin="10" Height="60" Width="60">Left</Button>
-                <Button x:Name="btnRight" Margin="10" Height="60" Width="60">Right</Button>
+                <Button x:Name="btnLeft" Margin="10" Height="60" Width="60" Click="btnLeft_Click"  >Left</Button>
+                <Button x:Name="btnRight" Margin="10" Height="60" Width="60" Click="btnRight_Click" >Right</Button>
                 <Label x:Name="lblCounter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" >0 / 0</Label>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">

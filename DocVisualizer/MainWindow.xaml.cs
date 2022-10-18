@@ -12,14 +12,29 @@ namespace DocVisualizer
     public partial class MainWindow : Window
     {
         private NavigationService Navigation;
+        private Documents Documents;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-       
+
         #region Buttons
+
+        private void btnLeft_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.MoveBackward();
+            ShowDocumentsOnScreen(Documents, Navigation);
+
+        }
+
+        private void btnRight_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.MoveForward();
+            ShowDocumentsOnScreen(Documents, Navigation);
+        }
+
         private void btnLanguage_Click(object sender, RoutedEventArgs e)
         {
 
@@ -30,7 +45,7 @@ namespace DocVisualizer
         {
             if(e.Key == System.Windows.Input.Key.Return)
             {
-                MainLoop();
+                MainDocumentsAction(ref Documents, ref Navigation);
             }
         }
 
@@ -41,15 +56,15 @@ namespace DocVisualizer
 
 
         // Gets document from user, load documents from database, show documents on screeen, set up document counter on frontend
-        private void MainLoop()
+        private void MainDocumentsAction(ref Documents documents, ref NavigationService navigation)
         {
-            // ToDo: Show set of documents , and make it available to switch between docs up/down and show it on document counter
-
-            Documents documents = new Documents();        
+            documents = new Documents();        
             string partNumber = txtBoxID.Text;
             documents = LoadDocumentsFomDatabase(partNumber);
-            Navigation = new NavigationService(documents);
-            ShowDocumentsOnScreen(documents, Navigation);
+            
+            // Set up navigation 
+            navigation = new NavigationService(documents);
+            ShowDocumentsOnScreen(documents, navigation);
         }
 
         private Documents LoadDocumentsFomDatabase(string partNumber)
@@ -62,8 +77,7 @@ namespace DocVisualizer
 
         private void ShowDocumentsOnScreen(Documents documents, NavigationService navigation)
         {
-            // ToDo : Code to show proper document from navigation class
-            // ToDo : Code up/down buttons
+            // ToDo : Code to show proper document from navigation class - test it on code and couple files dedicated for the code
             string fullPAth = @"C:\0 VirtualServer\Documents\BrakDokumentu.jpg";
             ImageSource imageSource = new BitmapImage(new System.Uri(fullPAth));
             ImageShow.Source = imageSource;
@@ -75,6 +89,6 @@ namespace DocVisualizer
         {
             lblCounter.Content = "" + navigation.GetCounter();
         }
-        
+
     }
 }
