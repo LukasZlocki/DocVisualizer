@@ -63,6 +63,7 @@ namespace DocVisualizer
         private void ShowDocumentsOnScreen(Documents documents, NavigationService navigation)
         {
             // ToDo : Code to show proper document from navigation class
+            // ToDo : Code up/down buttons
             string fullPAth = @"C:\0 VirtualServer\Documents\BrakDokumentu.jpg";
             ImageSource imageSource = new BitmapImage(new System.Uri(fullPAth));
             ImageShow.Source = imageSource;
