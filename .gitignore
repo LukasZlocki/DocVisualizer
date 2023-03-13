@@ -8,5 +8,4 @@ DocVisualizer.Models/Migrations/
 DocVisualizer.Services/bin/
 DocVisualizer.Services/obj/
 obj/
-DocVisualizer.sln
 DocVisualizer/dbfile.xml
